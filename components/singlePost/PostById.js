@@ -20,7 +20,7 @@ import { deletePosts } from "../../lib/operations/postsOperation.js";
 import Loader from "../loader/Loader.js";
 import { Link } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       width: "100%",

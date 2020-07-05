@@ -17,5 +17,5 @@
   },
   "noImplicitAny": false,
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/posts/new.tsx", "components/postList/PostList.js", "pages/_document.tsx", "components/postListItem/PostListItem.js", "components/createForm/CreateForm.js", "lib/slices/postSlice.js", "pages/posts/[id].js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/posts/new.tsx", "components/postList/PostList.js", "pages/_document.tsx", "components/postListItem/PostListItem.js", "components/createForm/CreateForm.js", "lib/slices/postSlice.js", "pages/posts/[id].js", "components/singlePost/PostById.js"]
 }
