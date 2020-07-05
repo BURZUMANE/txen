@@ -55,7 +55,7 @@ export default function SinglePost({ post }) {
   const handleDelete = () => {
     dispatch(deletePosts(id));
   };
-  console.log(post.body);
+
 
   return (
     <Card className={classes.root}>
@@ -79,7 +79,7 @@ export default function SinglePost({ post }) {
         </IconButton>
         <Typography>
           <Link href={`posts/${id}`}>
-            <IconButton aria-label="delete">
+            <IconButton aria-label="read more">
               <MenuBookRoundedIcon />
             </IconButton>
           </Link>

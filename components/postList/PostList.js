@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import PostListItem from "../postListItem/PostListItem.js";
+import Loader from "../loader/Loader";
 
 const List = styled.ul`
   list-style: none;
@@ -16,7 +17,11 @@ const PostList = () => {
   };
   return (
     <List>
-      {posts.length && posts.map((post, idx) => hasElement(post, idx))}
+      {posts.length ? (
+        posts.map((post, idx) => hasElement(post, idx))
+      ) : (
+        <Loader />
+      )}
     </List>
   );
 };

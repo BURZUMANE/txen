@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -16,12 +17,13 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MenuBookRoundedIcon from "@material-ui/icons/MenuBookRounded";
 import { deletePosts } from "../../lib/operations/postsOperation.js";
+import Loader from "../loader/Loader.js";
 import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width:'100%',
+      width: "100%",
     },
     media: {
       height: 0,
@@ -43,37 +45,45 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function PostById({ post }) {
+export default function PostById() {
+  const post = useSelector(state => state.post);
   const { title, body, id } = post;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const dispatch = useDispatch();
-
+  const router = useRouter();
   const handleDelete = () => {
     dispatch(deletePosts(id));
+    router.push("/");
   };
 
   return (
-    <Card className={classes.root} >
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            x
-          </Avatar>
-        }
-        title={title}
-        subheader="September 14, 2016"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {body.substring(0, 100) + "..."}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="delete" onClick={handleDelete}>
-          <DeleteIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+    <>
+      {title ? (
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="recipe" className={classes.avatar}>
+                x
+              </Avatar>
+            }
+            title={title}
+            subheader="September 14, 2016"
+          />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {body && body.substring(0, 80) + "..."}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="delete" onClick={handleDelete}>
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }
