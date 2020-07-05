@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "../lib/operations/postsOperation";
 import Layout from "../components/Layout";
 
-import PostList from "../components/postList/PostList.js";
+import PostList from "../components/postList/PostList";
 
 const IndexPage = () => {
   const dispatch = useDispatch();

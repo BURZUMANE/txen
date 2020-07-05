@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport Layout from \"../../components/Layout\";\nimport CreateForm from \"../../components/createForm/CreateForm\";\n\nconst New = () => {\n  return __jsx(Layout, null, __jsx(CreateForm, null));\n};\n\nexport default New;","map":null,"metadata":{},"sourceType":"module"}

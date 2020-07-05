@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createSlice } from \"@reduxjs/toolkit\";\nexport var postReducer = createSlice({\n  name: \"post\",\n  initialState: {},\n  reducers: {\n    getPost: function getPost(state, _ref) {\n      var payload = _ref.payload;\n      return payload;\n    }\n  }\n});","map":null,"metadata":{},"sourceType":"module"}
