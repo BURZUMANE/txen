@@ -21,7 +21,10 @@ import { Link } from "@material-ui/core";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: 345,
+      width: 400,
+      height: 200,
+      maxHeight: "100%",
+      marginBottom: 20,
     },
     media: {
       height: 0,
@@ -52,6 +55,7 @@ export default function SinglePost({ post }) {
   const handleDelete = () => {
     dispatch(deletePosts(id));
   };
+  console.log(post.body);
 
   return (
     <Card className={classes.root}>
@@ -66,7 +70,7 @@ export default function SinglePost({ post }) {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {body.substring(0, 100) + "..."}
+          {body && body.substring(0, 80) + "..."}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
